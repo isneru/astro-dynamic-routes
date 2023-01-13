@@ -1,0 +1,12 @@
+---
+import Link from "components/Link.astro"
+import Layout from "layouts/Layout.astro"
+const title = "Welcome to Astro"
+---
+
+<Layout title={title}>
+  <main>
+    <h1 class="bg-red-400 mb-2">{title}</h1>
+    <Link href="/users">All users</Link>
+  </main>
+</Layout>
