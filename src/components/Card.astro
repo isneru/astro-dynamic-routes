@@ -3,12 +3,21 @@ export interface Props {
   name: string
   username: string
   id: number
+  isLink?: boolean
 }
 
-const { name, username, id } = Astro.props
+const { name, username, id, isLink = false } = Astro.props
 ---
 
 <div class="bg-zinc-800 text-white p-3 rounded w-full max-w-sm aspect-video border-2 border-red-400">
-  <h2 class="font-bold"><a href={`/users/${id}/`}>{name}</a></h2>
+  {
+    isLink ? (
+      <h2 class="font-bold">
+        <a href={`/users/${id}/`}>{name}</a>
+      </h2>
+    ) : (
+      <h2 class="font-bold">{name}</h2>
+    )
+  }
   <p class="text-zinc-500 leading-none ml-1 text-sm">@{username}</p>
 </div>
